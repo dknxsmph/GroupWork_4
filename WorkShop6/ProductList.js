@@ -1,0 +1,1 @@
+function prod(productId, productName, price, stocks)
