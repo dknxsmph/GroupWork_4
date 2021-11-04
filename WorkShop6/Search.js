@@ -1,1 +1,0 @@
-import { product } from "./Product.js";

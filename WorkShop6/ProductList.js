@@ -2,6 +2,7 @@ import { product } from "./Product.js";
 const cart = [];
 let productList = document.querySelector("#product");
 let amount = document.querySelector("#item-count");
+let count = 0;
 
 function addProduct(product_list, i) {
 
@@ -61,14 +62,15 @@ function addProduct(product_list, i) {
                 let select = product.find((pd) => pd.productId === p.productId);
                 let item = { productId: select.productId, price: select.price, amount: 1 };
                 let check = cart.find((c) => c.productId === p.productId);
+                count++;
                 if (check) {
                     check.amount++;
                 } else {
                     cart.push(item);
                 }
                 console.log(cart);
-                // amount.innerHTML = cart.length;
-                cart.reduce((x, y) => );
+                amount.innerHTML = count;
+
             });
         }
     });
@@ -91,9 +93,10 @@ search.addEventListener("click", () => {
 const text_search = document.querySelector("#input-text");
 const btn_search = document.querySelector("#btn-search");
 btn_search.addEventListener("click", () => {
-    let proListsearch = product.filter((p) => p.productName.toLowerCase().search(text_search.value.toLowerCase()) != -1 || p.productDesc.toLowerCase().search(text_search.value.toLowerCase()) != -1);
-    productList.innerHTML = "";
-    addProduct(proListsearch, 0);
+    if (text_search.value.length != 0) {
+        let proListsearch = product.filter((p) => p.productName.toLowerCase().search(text_search.value.toLowerCase()) != -1 || p.productDesc.toLowerCase().search(text_search.value.toLowerCase()) != -1);
+        productList.innerHTML = "";
+        addProduct(proListsearch, 0);
+    }
     text_search.value = "";
-    console.log(proListsearch);
 });
