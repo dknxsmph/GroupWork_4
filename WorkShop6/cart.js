@@ -12,7 +12,6 @@ function addToCart(id) {
     alert(`${select.productName} has been added to your shopping cart`);
     let item = {
         productId: select.productId,
-        price: select.price,
         amount: 1,
     };
     // item.total = item.amount * item.price;
