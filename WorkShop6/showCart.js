@@ -1,4 +1,4 @@
-import { cart, total, update, remove, clearCart } from "./cart.js";
+import { cart, total, update, clearCart } from "./cart.js";
 import { product } from "./Product.js";
 const table_body = document.querySelector("#show-body");
 document.querySelector("#cart").addEventListener("click", showCart);
@@ -41,17 +41,17 @@ function showCart() {
         update(pro_show.productId, e.target.value)
       );
       row4.innerText = c.price;
-      let row5 = document.createElement("td");
-      let icon_del = document.createElement("i");
-      icon_del.setAttribute("class", "bi bi-trash-fill text-danger");
-      icon_del.setAttribute(
-        "style",
-        "cursor:pointer;font-size:1.5rem;text-align:right"
-      );
-      icon_del.addEventListener("click", () => {
-        remove(pro_show.productId);
-        showCart();
-      });
+      // let row5 = document.createElement("td");
+      // let icon_del = document.createElement("i");
+      // icon_del.setAttribute("class", "bi bi-trash-fill text-danger");
+      // icon_del.setAttribute(
+      //   "style",
+      //   "cursor:pointer;font-size:1.5rem;text-align:right"
+      // );
+      // icon_del.addEventListener("click", () => {
+      //   remove(pro_show.productId);
+      //   showCart();
+      // });
 
       //add
       trow.appendChild(row1);
@@ -62,8 +62,8 @@ function showCart() {
       row3.appendChild(input);
       trow.appendChild(row3);
       trow.appendChild(row4);
-      row5.appendChild(icon_del);
-      trow.appendChild(row5);
+      // row5.appendChild(icon_del);
+      // trow.appendChild(row5);
       table_body.appendChild(trow);
     });
   }
