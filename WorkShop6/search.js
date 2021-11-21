@@ -13,7 +13,6 @@ function toggleSearch() {
         show_search.style = "width:60%";
         refreshPage();
     }
-    console.log(btn_toggle);
 }
 const search = document.querySelector("#search");
 search.addEventListener("click", toggleSearch);
@@ -22,13 +21,12 @@ const btn_search = document.querySelector("#btn-search");
 btn_search.addEventListener("click", () => {
     if (text_search.value.length != 0) {
         refreshPage();
-        let proListsearch = product.filter(notMatch);
-        filterProduct(proListsearch);
+        filterProduct(product.filter(notMatch));
     }
 });
 
 function notMatch(p) {
-    let text = text_search.value.toLowerCase();
+    const text = text_search.value.toLowerCase();
     return (!p.productName.toLowerCase().includes(text) &&
         !p.productDesc.toLowerCase().includes(text)
     );
