@@ -2,8 +2,8 @@ import { product } from "./Product.js";
 import { addToCart } from "./cart.js";
 const productList = document.querySelector("#product");
 
-function addProduct(product_list) {
-  product_list.forEach((p) => {
+function addProduct() {
+  product.forEach((p) => {
     const div_col = document.createElement("div"); // create div_col parent
     div_col.setAttribute("class", "col-4 pb-2");
     const card = document.createElement("div"); // child div_col
@@ -51,9 +51,10 @@ function addProduct(product_list) {
     card_body.appendChild(b_btn);
 
     b_btn.addEventListener("click", (e) => {
+      console.log(e.target);
       addToCart(e.target.id);
     });
   });
 }
 
-addProduct(product);
+addProduct();
