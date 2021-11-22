@@ -1,5 +1,5 @@
 import { product } from "./Product.js";
-let cart_storage = JSON.parse(localStorage.getItem("cart"));
+const cart_storage = JSON.parse(localStorage.getItem("cart"));
 let cart = cart_storage != null ? cart_storage : [];
 const amount = document.querySelector("#item-count");
 amount.innerHTML = countCart();
