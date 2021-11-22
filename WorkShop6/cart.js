@@ -6,7 +6,7 @@ amount.innerHTML = countCart();
 const show = document.querySelector("#total");
 
 function addToCart(id) {
-  alert(`${select.productName} has been added to your shopping cart`);
+  alert(`${id} has been added to your shopping cart`);
   const check = cart.find((c) => c.productId == id);
   if (check) {
     check.amount++;
@@ -32,8 +32,7 @@ function total() {
 
 function update(id, item_amount) {
   item_amount = parseInt(item_amount);
-  const item = cart.find((c) => c.productId == id);
-  item.amount = item_amount;
+  cart.find((c) => c.productId == id).amount = item_amount;
   show.innerHTML = "Total : " + total();
   localStorage.setItem("cart", JSON.stringify(cart));
   amount.innerHTML = countCart();
