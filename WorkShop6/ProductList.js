@@ -1,5 +1,5 @@
 import { product } from "./Product.js";
-import { addToCart } from "./cart.js";
+import { cart } from "./cart.js";
 const productList = document.querySelector("#product");
 
 function addProduct() {
@@ -51,8 +51,7 @@ function addProduct() {
     card_body.appendChild(b_btn);
 
     b_btn.addEventListener("click", (e) => {
-      console.log(e.target);
-      addToCart(e.target.id);
+      cart.addToCart(e.target.id);
     });
   });
 }

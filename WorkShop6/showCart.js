@@ -1,4 +1,4 @@
-import { cart, total, update, clearCart } from "./cart.js";
+import { cart } from "./cart.js";
 import { product } from "./Product.js";
 const table_body = document.querySelector("#show-body");
 document.querySelector("#cart").addEventListener("click", showCart);
@@ -6,13 +6,13 @@ const total_price = document.querySelector("#total");
 
 function showCart() {
   table_body.innerHTML = "";
-  if (cart == null || cart.length == 0) {
+  if (cart.items == null || cart.items.length == 0) {
     table_body.innerHTML =
       "<p style='color:red;text-align:center'>Not have product</p>";
     total_price.innerHTML = "";
   } else {
-    total_price.innerHTML = "Total : " + total();
-    cart.forEach((c, index) => {
+    total_price.innerHTML = "Total : " + cart.total();
+    cart.items.forEach((c, index) => {
       const prod_show = product.find((p) => p.productId == c.productId);
       const trow = document.createElement("tr");
       trow.setAttribute("class", "align-middle");
@@ -38,7 +38,7 @@ function showCart() {
       input.setAttribute("max", prod_show.stocks);
       input.value = c.amount;
       input.addEventListener("input", (e) =>
-        update(prod_show.productId, e.target.value)
+        cart.update(prod_show.productId, e.target.value)
       );
       row4.innerHTML = prod_show.price;
 
@@ -56,6 +56,6 @@ function showCart() {
   }
 }
 document.querySelector("#clear-cart").addEventListener("click", () => {
-  clearCart();
+  cart.clear();
   showCart();
 });
