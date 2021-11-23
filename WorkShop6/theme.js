@@ -1,9 +1,9 @@
 import { CookieUtil } from "./cookieUtils.js";
 const theme = document.querySelector("#theme");
 const check_cookie = document.cookie;
-let bg = check_cookie.length == 0 ? "" : CookieUtil.getCookie("bg");
+let bg = check_cookie.length == 0 ? "bg-white" : CookieUtil.getCookie("bg");
 let color_header =
-  check_cookie.length == 0 ? "" : CookieUtil.getCookie("color_header");
+  check_cookie.length == 0 ? "text-dark" : CookieUtil.getCookie("color_header");
 
 function change_theme() {
   if (bg == "bg-white") {
